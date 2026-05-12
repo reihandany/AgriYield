@@ -15,7 +15,7 @@ warnings.filterwarnings('ignore')
 
 # ==================== CONFIG ====================
 st.set_page_config(
-    page_title="Prediksi Produktivitas Pertanian",
+    page_title="AgriYield",
     page_icon="🌾",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -162,7 +162,7 @@ def get_model_performance():
 # ==================== PAGE FUNCTIONS ====================
 def page_home():
     """Home Page"""
-    st.title("🌾 Dashboard Prediksi Produktivitas Pertanian")
+    st.title("🌾 AgriYield - Dashboard Prediksi Produktivitas Pertanian")
     st.markdown("""
     <div style="background: linear-gradient(135deg, #001f3f 0%, #003d5c 100%); padding: 30px; border-radius: 10px; color: white; margin-bottom: 30px;">
         <h3>Sistem Pendukung Keputusan Berbasis Perubahan Iklim</h3>
