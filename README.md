@@ -11,13 +11,11 @@ Dashboard ini dirancang untuk membantu pengguna dalam menganalisis pengaruh fakt
 - **🏠 Home**: Informasi umum proyek, ringkasan dataset, dan performa model
 - **📊 Dataset Overview**: Karakteristik data, distribusi kelas, dan analisis atribut
 - **🔍 EDA (Exploratory Data Analysis)**: Visualisasi distribusi dan hubungan antar variabel
-- **🤖 ML Prediction**: Simulasi prediksi real-time tanpa perlu upload dataset
-- **📈 Model Evaluation**: Perbandingan performa Naive Bayes vs Decision Tree SMOTE
+- **🤖 ML Prediction**: Simulasi prediksi real-time tanpa perlu upload dataset- **📤 Batch Prediction**: Prediksi multiple data dengan upload CSV + download hasil- **📈 Model Evaluation**: Evaluasi performa Decision Tree Final Version
 
 ### 🧠 Model Machine Learning
 
-- **Naive Bayes**: Model probabilistik dengan asumsi independensi fitur
-- **Decision Tree + SMOTE**: Menangani data tidak seimbang dengan akurasi lebih tinggi
+- **Decision Tree (Latest Version)**: Model klasifikasi berbasis pohon keputusan dengan teknik SMOTE untuk menangani data tidak seimbang
 
 ## 🚀 Cara Menjalankan
 
@@ -35,15 +33,47 @@ streamlit run app.py
 
 Dashboard akan membuka di browser pada `http://localhost:8501`
 
-## 📁 Struktur File
+## � Fitur Batch Prediction
+
+### Cara Menggunakan Batch Prediction
+
+1. **Persiapkan File CSV**:
+   - File harus memiliki semua 21 kolom feature
+   - Boolean columns: `True` atau `False`
+   - Numeric columns: angka (integer atau float)
+
+2. **Upload File**:
+   - Klik "📤 Batch Prediction" di menu navigasi
+   - Upload file CSV Anda
+
+3. **Lihat Hasil**:
+   - Tabel dengan prediksi untuk setiap baris
+   - Probabilitas untuk setiap kelas
+   - Confidence score
+   - Visualisasi distribusi hasil
+
+4. **Download Hasil**:
+   - Download sebagai CSV
+   - Download sebagai Excel (jika openpyxl terinstall)
+
+### Contoh Struktur File CSV Input
+
+```csv
+Average_Temperature_C,Total_Precipitation_mm,CO2_Emissions_MT,...,Crop_Type_Wheat,Yield_Category
+20.5,150.0,50.0,...,True,
+21.0,160.0,55.0,...,False,
+```
+
+**Catatan**: Kolom `Yield_Category` bersifat opsional (tidak perlu diisi)
+
+## �📁 Struktur File
 
 ```
 Dashboard/
 ├── app.py                          # Aplikasi Streamlit utama
 ├── cleaned_agriculture.csv         # Dataset yang telah dibersihkan
 ├── requirements.txt                # Dependencies
-├── naive_bayes_model.pkl          # Model Naive Bayes
-├── dt_smote_model.pkl             # Model Decision Tree SMOTE
+├── initial_dt_model.pkl            # Model Decision Tree (Latest Version)
 ├── encoder.pkl                     # Label Encoder
 ├── feature_columns.pkl             # Kolom fitur
 └── README.md                       # Dokumentasi (file ini)
